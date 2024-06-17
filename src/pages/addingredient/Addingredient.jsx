@@ -1,6 +1,7 @@
 import React, { useEffect } from "react";
 import { useState } from "react";
 import Igrendient from "../../components/ingredient/Igrendient";
+import Header from "../../components/header/Header";
 import "./Addingredient.scss";
 
 const Addingredient = () => {
@@ -56,7 +57,7 @@ const Addingredient = () => {
 
   return (
     <>
-      <h1>Ajout d'ingrédients</h1>
+      <Header title="Ingrédients" />
       <form onSubmit={(e) => handleAddIngredient(e)}>
         <input type="text" required></input>
         <button type="submit">Ajouter ingrédient</button>

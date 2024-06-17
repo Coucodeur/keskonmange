@@ -1,6 +1,7 @@
 import React, { useEffect } from "react";
 import { useState } from "react";
 import Igrendient from "../../components/ingredient/Igrendient.jsx";
+import Header from "../../components/header/Header";
 import "./Addmeal.scss";
 
 const Addmeal = () => {
@@ -71,7 +72,7 @@ const Addmeal = () => {
 
   return (
     <>
-      <h1>Ajouter un repas</h1>
+      <Header title="Ajout d'un repas" />
       <button onClick={handleAddMeal}>Ajout repas</button>
       <div>Nom du repas</div>
       <input
