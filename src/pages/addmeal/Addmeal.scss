@@ -1,0 +1,10 @@
+.recap-ingredient-container {
+  margin-top: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  .ingredient {
+    display: flex;
+    justify-content: flex-start;
+  }
+}

@@ -1,0 +1,31 @@
+.navbar {
+  //style
+  width: 100vw;
+  height: 50px;
+  background-color: rgba(255, 255, 255, 0.573);
+  border-top: 1px solid black;
+  box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.5);
+  //position
+  position: fixed;
+  top: 95vh;
+  left: 50%;
+  transform: translateX(-50%);
+  //display
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  a {
+    //style
+    color: black;
+    text-decoration: none;
+    font-size: 1rem;
+    //transition
+    transition: 0.3s;
+  }
+  .active {
+    background-color: #ff000044;
+    font-size: 1.2rem;
+    padding: 5px;
+    border-radius: 3px;
+  }
+}

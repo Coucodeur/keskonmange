@@ -10,6 +10,9 @@ const Nav = () => {
       <NavLink to={"/addmeal"} className="navLink">
         Add meal
       </NavLink>
+      <NavLink to={"/ingredients"} className="navLink">
+        Ingredients
+      </NavLink>
     </div>
   );
 };

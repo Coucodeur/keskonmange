@@ -1,11 +1,17 @@
 import "./ingredient.scss";
 import { useState } from "react";
 
-const Igrendient = ({ ingredientName }) => {
+const Igrendient = ({ id, ingredientName, action }) => {
   return (
-    <li>
-      <p>{ingredientName}</p> <span>-</span>
-    </li>
+    <div className="ingredient">
+      {id ? (
+        <button onClick={() => action(id)}>x</button>
+      ) : (
+        <button onClick={() => action(ingredientName)}>-</button>
+      )}
+
+      <p>{ingredientName}</p>
+    </div>
   );
 };
 
