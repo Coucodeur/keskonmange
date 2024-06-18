@@ -1,16 +1,7 @@
 .navbar {
-  //style
-  width: 100vw;
-  height: 50px;
   background-color: rgb(243, 173, 171);
   border-top: 1px solid black;
   box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.5);
-  //position
-  position: fixed;
-  top: 95vh;
-  left: 50%;
-  transform: translateX(-50%);
-  //display
   display: flex;
   justify-content: space-around;
   align-items: center;

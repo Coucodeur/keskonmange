@@ -73,38 +73,40 @@ const Addmeal = () => {
   return (
     <>
       <Header title="Ajout d'un repas" />
-      <button onClick={handleAddMeal}>Ajout repas</button>
-      <div>Nom du repas</div>
-      <input
-        onChange={(e) => setName(e.target.value)}
-        type="text"
-        id="name"
-        name="name"
-        required
-      />
-      <div>Temps de préparation</div>
-      <input onChange={(e) => setPrepTime(e.target.value)} type="number" required />
-      <div>Ingrédients</div>
-      <select
-        name="ingredient-list"
-        id="ingredient-list-select"
-        onChange={(e) => handleAddIngredient(e.target.value)}
-      >
-        <option value="">--Choisissez vos ingrédients</option>
-        {ingredientsList.map((ingredient) => (
-          <option key={ingredient.id} value={ingredient.value}>
-            {ingredient.name}
-          </option>
-        ))}
-      </select>
-      <div className="recap-ingredient-container">
-        {ingredients.map((ingredient, index) => (
-          <Igrendient
-            key={index}
-            ingredientName={ingredient}
-            action={handleDeleteIngredient}
-          />
-        ))}
+      <div className="content">
+        <button onClick={handleAddMeal}>Ajout repas</button>
+        <div>Nom du repas</div>
+        <input
+          onChange={(e) => setName(e.target.value)}
+          type="text"
+          id="name"
+          name="name"
+          required
+        />
+        <div>Temps de préparation</div>
+        <input onChange={(e) => setPrepTime(e.target.value)} type="number" required />
+        <div>Ingrédients</div>
+        <select
+          name="ingredient-list"
+          id="ingredient-list-select"
+          onChange={(e) => handleAddIngredient(e.target.value)}
+        >
+          <option value="">--Choisissez vos ingrédients</option>
+          {ingredientsList.map((ingredient) => (
+            <option key={ingredient.id} value={ingredient.value}>
+              {ingredient.name}
+            </option>
+          ))}
+        </select>
+        <div className="recap-ingredient-container">
+          {ingredients.map((ingredient, index) => (
+            <Igrendient
+              key={index}
+              ingredientName={ingredient}
+              action={handleDeleteIngredient}
+            />
+          ))}
+        </div>
       </div>
     </>
   );

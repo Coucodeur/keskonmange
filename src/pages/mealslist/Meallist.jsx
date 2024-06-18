@@ -22,7 +22,7 @@ const Meallist = () => {
   return (
     <>
       <Header title="Liste des repas" />
-      <div className="meal-list-container">
+      <div className="meal-list-container content">
         {meals.map((meal) => (
           <Meal
             key={meal.id}

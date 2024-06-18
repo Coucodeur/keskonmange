@@ -58,20 +58,22 @@ const Addingredient = () => {
   return (
     <>
       <Header title="Ingrédients" />
-      <form onSubmit={(e) => handleAddIngredient(e)}>
-        <input type="text" required></input>
-        <button type="submit">Ajouter ingrédient</button>
-      </form>
-      {/* ingredients list */}
-      <div className="ingredient-container">
-        {ingredientsList.map((ingredient) => (
-          <Igrendient
-            key={ingredient.id}
-            id={ingredient.id}
-            ingredientName={ingredient.name}
-            action={handleDeleteIngredient}
-          />
-        ))}
+      <div className="content">
+        <form onSubmit={(e) => handleAddIngredient(e)}>
+          <input type="text" required></input>
+          <button type="submit">Ajouter ingrédient</button>
+        </form>
+        {/* ingredients list */}
+        <div className="ingredient-container">
+          {ingredientsList.map((ingredient) => (
+            <Igrendient
+              key={ingredient.id}
+              id={ingredient.id}
+              ingredientName={ingredient.name}
+              action={handleDeleteIngredient}
+            />
+          ))}
+        </div>
       </div>
     </>
   );
