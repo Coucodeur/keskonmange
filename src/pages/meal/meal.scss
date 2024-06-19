@@ -1,32 +1,32 @@
 .meal-card {
-  margin: 10px;
-  width: 100%;
-  max-width: 300px;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  gap: 5px;
-  border-radius: 10px;
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-  overflow: hidden;
-  transition: transform 0.3s;
-  padding: 5px;
-  .edit-icon {
-    width: 30px;
-    background-color: royalblue;
+    margin: 10px;
+    width: 100%;
+    max-width: 300px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 10px;
+    border-radius: 10px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    transition: transform 0.3s;
     padding: 5px;
-    border-radius: 50%;
-  }
-  .cta {
-    padding: 5px;
-    border: none;
-    background-color: rgba(255, 255, 255, 0.1);
-    color: white;
-    cursor: pointer;
-    transition: 0.3s;
-    &:hover {
-      background-color: rgba(255, 255, 255, 0.3);
+    .edit-icon {
+        width: 30px;
+        background-color: royalblue;
+        padding: 5px;
+        border-radius: 50%;
     }
-  }
+    .cta {
+        padding: 5px;
+        border: none;
+        background-color: rgba(255, 255, 255, 0.1);
+        color: white;
+        cursor: pointer;
+        transition: 0.3s;
+        &:hover {
+            background-color: rgba(255, 255, 255, 0.3);
+        }
+    }
 }
