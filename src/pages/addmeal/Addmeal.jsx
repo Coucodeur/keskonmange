@@ -12,6 +12,8 @@ const Addmeal = () => {
     const [prepTime, setPrepTime] = useState("");
     const [ingredients, setIngredients] = useState([]);
     const [newIngredientName, setNewIngredientName] = useState("");
+    const [recette, setRecette] = useState("");
+    const [isWritting, setIsWritting] = useState(false);
 
     useEffect(() => {
         const ingredientsListStored = JSON.parse(localStorage.getItem("ingredients"));
@@ -56,6 +58,7 @@ const Addmeal = () => {
             name,
             prepTime,
             ingredients,
+            recette,
             created: Date.now(),
             lastDate: Date.now(),
         };
@@ -84,8 +87,7 @@ const Addmeal = () => {
     return (
         <>
             <Header title="Ajout d'un repas" />
-            <div className="content">
-                <button onClick={handleAddMeal}>Ajout repas</button>
+            <div className="content addmeal-page">
                 <div>Nom du repas</div>
                 <input
                     onChange={(e) => setName(e.target.value)}
@@ -124,15 +126,40 @@ const Addmeal = () => {
                             </option>
                         ))}
                 </select>
-                <div className="recap-ingredient-container">
-                    {ingredients.map((ingredient, index) => (
-                        <Igrendient
-                            key={index}
-                            ingredientName={ingredient}
-                            action={handleDeleteIngredient}
-                        />
-                    ))}
+                <div className="action-container">
+                    <div className="actions">
+                        <button onClick={() => setIsWritting(false)}>
+                            Voir ingredients
+                        </button>
+                        <button onClick={() => setIsWritting(true)}>
+                            {" "}
+                            Editer recette{" "}
+                        </button>
+                    </div>
+                    <button onClick={handleAddMeal}>Ajout repas</button>
                 </div>
+                {isWritting ? (
+                    <div className="recap-recette-container">
+                        <h3>Recette</h3>
+                        <textarea
+                            className="recette-input"
+                            value={recette}
+                            onChange={(e) => setRecette(e.target.value)}
+                            re
+                        ></textarea>
+                    </div>
+                ) : (
+                    <div className="recap-ingredient-container">
+                        <h3>Liste des ingrédients:</h3>
+                        {ingredients.map((ingredient, index) => (
+                            <Igrendient
+                                key={index}
+                                ingredientName={ingredient}
+                                action={handleDeleteIngredient}
+                            />
+                        ))}
+                    </div>
+                )}
             </div>
         </>
     );

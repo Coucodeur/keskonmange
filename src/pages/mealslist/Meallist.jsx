@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 import { useState } from "react";
-import Meal from "../meal/Meal";
+import Mealcard from "../../components/mealcard/Mealcard";
 import Header from "../../components/header/Header";
 import "./meallist.scss";
 
@@ -32,6 +32,13 @@ const Meallist = () => {
         setMeals(newMealsUpdated);
     };
 
+    const deleteMeal = (id) => {
+        const mealsCopy = [...meals];
+        const newMeals = mealsCopy.filter((meal) => meal.id !== id);
+        localStorage.setItem("meals", JSON.stringify(newMeals));
+        setMeals(newMeals);
+    };
+
     return (
         <>
             <Header title="Liste des repas" />
@@ -39,7 +46,7 @@ const Meallist = () => {
                 {meals
                     .sort((a, b) => b.lastDate - a.lastDate)
                     .map((meal) => (
-                        <Meal
+                        <Mealcard
                             key={meal.id}
                             id={meal.id}
                             name={meal.name}
@@ -47,6 +54,7 @@ const Meallist = () => {
                             ingredients={meal.ingredients}
                             lastPrep={meal.lastDate}
                             action={updateLastPrep}
+                            deleteMeal={deleteMeal}
                         />
                     ))}
             </div>
