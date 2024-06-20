@@ -1,0 +1,27 @@
+.meal-detail-page {
+    .recap-container-detail-page {
+        margin-top: 20px;
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        h2 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+    }
+    .ingredient-container-detail-page {
+        margin: 15px 5px;
+        .ingredient-list-detail-page {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+    }
+    .recette-container-detail-page {
+        .recette-input {
+            resize: none;
+            width: 100%;
+            min-height: 300px;
+        }
+    }
+}

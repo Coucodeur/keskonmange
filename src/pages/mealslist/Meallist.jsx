@@ -42,22 +42,23 @@ const Meallist = () => {
     return (
         <>
             <Header title="Liste des repas" />
-            <div className="meal-list-container content">
+            <ul className="meal-list-container content">
                 {meals
                     .sort((a, b) => b.lastDate - a.lastDate)
-                    .map((meal) => (
-                        <Mealcard
-                            key={meal.id}
-                            id={meal.id}
-                            name={meal.name}
-                            prepTime={meal.prepTime}
-                            ingredients={meal.ingredients}
-                            lastPrep={meal.lastDate}
-                            action={updateLastPrep}
-                            deleteMeal={deleteMeal}
-                        />
+                    .map((meal, index) => (
+                        <li key={index}>
+                            <Mealcard
+                                id={meal.id}
+                                name={meal.name}
+                                prepTime={meal.prepTime}
+                                ingredients={meal.ingredients}
+                                lastPrep={meal.lastDate}
+                                action={updateLastPrep}
+                                deleteMeal={deleteMeal}
+                            />
+                        </li>
                     ))}
-            </div>
+            </ul>
         </>
     );
 };

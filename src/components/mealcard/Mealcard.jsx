@@ -30,14 +30,17 @@ const Mealcard = ({ id, name, prepTime, ingredients, lastPrep, action, deleteMea
             <p>Temps de préparation : {prepTime} minutes</p>
             <div className="ingredient-container-mealcard">
                 <h3>Ingrédients :</h3>
-                <ul>
+                <ul className="meallist-ingredient-container">
                     {ingredients.map((ingredient, index) => (
-                        <li key={index}>{ingredient}</li>
+                        <li key={index}>
+                            <span>{index + 1} - </span>
+                            {ingredient}
+                        </li>
                     ))}
                 </ul>
             </div>
             <div className="last-prep-container">
-                <p>Dernière préparation :</p>
+                <p>Dernière dégustation :</p>
                 <p>{formatedDate}</p>
             </div>
             <button className="cta" onClick={() => action(id)}>
