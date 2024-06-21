@@ -100,26 +100,28 @@ const Mealdetail = () => {
                     <p>Dernière dégustation : {formatedLastDate}</p>
                     <p>Temps de préparation : {mealPrepTime} minutes</p>
                 </div>
-                <form onSubmit={(e) => handleAddIngredientName(e)}>
-                    <div>Ajouter ingredients</div>
-                    <input required type="text" />
-                    <input type="submit" value="Ajouter" />
-                </form>
-                <div>Ajouter un ingrédients favoris</div>
-                <select
-                    name="ingredient-list"
-                    id="ingredient-list-select"
-                    onChange={(e) => handleAddIngredient(e.target.value)}
-                >
-                    <option value="">--Choisissez vos ingrédients</option>
-                    {ingredientsList
-                        .sort((a, b) => a.name.localeCompare(b.name))
-                        .map((ingredient) => (
-                            <option key={ingredient.id} value={ingredient.value}>
-                                {ingredient.name}
-                            </option>
-                        ))}
-                </select>
+                <div className="ingredient-gest-container">
+                    <form onSubmit={(e) => handleAddIngredientName(e)}>
+                        <div>Ajouter ingredients</div>
+                        <input required type="text" />
+                        <input type="submit" value="Ajouter" />
+                    </form>
+                    <div>Ajouter un ingrédients favoris</div>
+                    <select
+                        name="ingredient-list"
+                        id="ingredient-list-select"
+                        onChange={(e) => handleAddIngredient(e.target.value)}
+                    >
+                        <option value="">--Choisissez vos ingrédients</option>
+                        {ingredientsList
+                            .sort((a, b) => a.name.localeCompare(b.name))
+                            .map((ingredient) => (
+                                <option key={ingredient.id} value={ingredient.value}>
+                                    {ingredient.name}
+                                </option>
+                            ))}
+                    </select>
+                </div>
                 {/* afficahge des ingredients */}
                 <div className="ingredient-container-detail-page">
                     <h3>Ingrédients</h3>

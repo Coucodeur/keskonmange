@@ -88,6 +88,7 @@ const Addmeal = () => {
         <>
             <Header title="Ajout d'un repas" />
             <div className="content addmeal-page">
+                <h2>Entrez les informations du repas</h2>
                 <div>Nom du repas</div>
                 <input
                     onChange={(e) => setName(e.target.value)}
