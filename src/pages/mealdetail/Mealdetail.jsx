@@ -1,10 +1,11 @@
 import React, { useEffect, useState } from "react";
 import "./Mealdetail.scss";
-import { useParams } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
 import Header from "../../components/header/Header";
 import Ingredient from "../../components/ingredient/Igrendient";
 
 const Mealdetail = () => {
+    const navigate = useNavigate();
     const { id } = useParams();
     const [mealName, setMealName] = useState("");
     const [ingredients, setIngredients] = useState([]);
@@ -12,6 +13,7 @@ const Mealdetail = () => {
     const [mealRecette, setMealRecette] = useState("");
     const [mealCreated, setMealCreated] = useState("");
     const [mealLastDate, setMealLastDate] = useState("");
+    const [ingredientsList, setIngredientsList] = useState([]);
 
     const formatedCreated = new Date(mealCreated).toLocaleDateString("fr-FR", {
         year: "numeric",
@@ -27,6 +29,7 @@ const Mealdetail = () => {
 
     useEffect(() => {
         getMealDAta(id);
+        getStoredIngredients();
     }, []);
 
     const getMealDAta = (id) => {
@@ -39,6 +42,10 @@ const Mealdetail = () => {
         setMealCreated(meal.created);
         setMealLastDate(meal.lastDate);
     };
+    const getStoredIngredients = () => {
+        const ingredientsListStored = JSON.parse(localStorage.getItem("ingredients"));
+        setIngredientsList(ingredientsListStored);
+    };
 
     const handleDeleteIngredient = (name) => {
         const ingredientsCopy = [...ingredients];
@@ -46,6 +53,18 @@ const Mealdetail = () => {
             (ingredient) => ingredient !== name
         );
         setIngredients(newIngredients);
+    };
+
+    //ajout d'un ingredient
+    const handleAddIngredient = (value) => {
+        const ingredientsCopy = [...ingredients];
+        const newIngredients = [...ingredientsCopy, value];
+        setIngredients(newIngredients);
+    };
+    const handleAddIngredientName = (e) => {
+        e.preventDefault();
+        handleAddIngredient(e.target[0].value);
+        e.target[0].value = "";
     };
 
     const handleUpdateRecette = () => {
@@ -68,7 +87,7 @@ const Mealdetail = () => {
         });
         localStorage.setItem("meals", JSON.stringify(updatedMealsList));
         //redirection vers la page d'accueil
-        window.location.href = "/";
+        navigate("/");
     };
 
     return (
@@ -81,6 +100,27 @@ const Mealdetail = () => {
                     <p>Dernière dégustation : {formatedLastDate}</p>
                     <p>Temps de préparation : {mealPrepTime} minutes</p>
                 </div>
+                <form onSubmit={(e) => handleAddIngredientName(e)}>
+                    <div>Ajouter ingredients</div>
+                    <input required type="text" />
+                    <input type="submit" value="Ajouter" />
+                </form>
+                <div>Ajouter un ingrédients favoris</div>
+                <select
+                    name="ingredient-list"
+                    id="ingredient-list-select"
+                    onChange={(e) => handleAddIngredient(e.target.value)}
+                >
+                    <option value="">--Choisissez vos ingrédients</option>
+                    {ingredientsList
+                        .sort((a, b) => a.name.localeCompare(b.name))
+                        .map((ingredient) => (
+                            <option key={ingredient.id} value={ingredient.value}>
+                                {ingredient.name}
+                            </option>
+                        ))}
+                </select>
+                {/* afficahge des ingredients */}
                 <div className="ingredient-container-detail-page">
                     <h3>Ingrédients</h3>
                     <div className="ingredient-list-detail-page">
@@ -93,6 +133,7 @@ const Mealdetail = () => {
                         ))}
                     </div>
                 </div>
+                {/* afficahge de la recette */}
                 <div className="recette-container-detail-page">
                     <h3>Recette</h3>
                     <textarea
@@ -103,7 +144,7 @@ const Mealdetail = () => {
                         onChange={(e) => setMealRecette(e.target.value)}
                     ></textarea>
                 </div>
-                <button onClick={handleUpdateRecette}>
+                <button className="cta" onClick={handleUpdateRecette}>
                     Mettre à jour et retourner au menu
                 </button>
             </div>

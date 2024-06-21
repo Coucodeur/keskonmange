@@ -132,8 +132,7 @@ const Addmeal = () => {
                             Voir ingredients
                         </button>
                         <button onClick={() => setIsWritting(true)}>
-                            {" "}
-                            Editer recette{" "}
+                            Editer recette
                         </button>
                     </div>
                     <button onClick={handleAddMeal}>Ajout repas</button>
@@ -145,12 +144,11 @@ const Addmeal = () => {
                             className="recette-input"
                             value={recette}
                             onChange={(e) => setRecette(e.target.value)}
-                            re
                         ></textarea>
                     </div>
                 ) : (
                     <div className="recap-ingredient-container">
-                        <h3>Liste des ingrédients:</h3>
+                        <h3>Liste des ingrédients</h3>
                         {ingredients.map((ingredient, index) => (
                             <Igrendient
                                 key={index}

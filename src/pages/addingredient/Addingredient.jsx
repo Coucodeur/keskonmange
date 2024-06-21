@@ -62,7 +62,8 @@ const Addingredient = () => {
     return (
         <>
             <Header title="Ingrédients" />
-            <div className="content">
+            <div className="add-ingredient-page content">
+                <h2>Entrez un nouvel ingredient favoris</h2>
                 <form onSubmit={(e) => handleAddIngredient(e)}>
                     <input
                         type="text"
