@@ -93,22 +93,26 @@ const Addmeal = () => {
                 <input
                     onChange={(e) => setName(e.target.value)}
                     type="text"
-                    id="name"
-                    name="name"
+                    name="name-input"
                     required
                 />
                 <div>Temps de préparation</div>
                 <input
                     onChange={(e) => setPrepTime(e.target.value)}
                     type="number"
+                    name="prep-time-input"
                     required
                 />
-                <form onSubmit={(e) => handleAddIngredientName(e)}>
+                <form
+                    onSubmit={(e) => handleAddIngredientName(e)}
+                    name="ingredient-adder-form"
+                >
                     <div>Ajouter ingredients</div>
                     <input
                         value={newIngredientName}
                         onChange={(e) => setNewIngredientName(e.target.value)}
                         type="text"
+                        name="ingredient-name-input"
                     />
                     <input type="submit" value="Ajouter" />
                 </form>
@@ -122,7 +126,11 @@ const Addmeal = () => {
                     {ingredientsList
                         .sort((a, b) => a.name.localeCompare(b.name))
                         .map((ingredient) => (
-                            <option key={ingredient.id} value={ingredient.value}>
+                            <option
+                                key={ingredient.id}
+                                value={ingredient.value}
+                                name={ingredient.name}
+                            >
                                 {ingredient.name}
                             </option>
                         ))}
@@ -145,6 +153,7 @@ const Addmeal = () => {
                             className="recette-input"
                             value={recette}
                             onChange={(e) => setRecette(e.target.value)}
+                            name="recette-text-area"
                         ></textarea>
                     </div>
                 ) : (

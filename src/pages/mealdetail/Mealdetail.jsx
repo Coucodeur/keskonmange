@@ -103,7 +103,7 @@ const Mealdetail = () => {
                 <div className="ingredient-gest-container">
                     <form onSubmit={(e) => handleAddIngredientName(e)}>
                         <div>Ajouter ingredients</div>
-                        <input required type="text" />
+                        <input required type="text" name="add-ingredient-name-input" />
                         <input type="submit" value="Ajouter" />
                     </form>
                     <div>Ajouter un ingrédients favoris</div>

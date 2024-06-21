@@ -67,6 +67,7 @@ const Addingredient = () => {
                 <form onSubmit={(e) => handleAddIngredient(e)}>
                     <input
                         type="text"
+                        name="ingredient-adder-input"
                         onChange={(e) => setNewIngredientName(e.target.value)}
                         value={newIngredientName}
                         required
