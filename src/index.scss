@@ -66,8 +66,6 @@ body {
         width: 100vw;
         height: 50px;
         position: fixed;
-        top: 95vh;
-        left: 50%;
-        transform: translateX(-50%);
+        top: calc(100vh - 50px);
     }
 }
