@@ -1,3 +1,5 @@
+@import '../../style/variables.scss';
+
 .meal-card {
     margin: 10px;
     width: 100%;
@@ -12,11 +14,13 @@
     overflow: hidden;
     transition: transform 0.3s;
     padding: 5px;
+    background-color: lighten($color: $primary-color, $amount: 15%);
     .meal-icon-container {
         display: flex;
         justify-content: space-around;
         .cta-icon {
             width: 30px;
+            height: 30px;
             background-color: royalblue;
             padding: 5px;
             border-radius: 50%;
@@ -26,15 +30,7 @@
             cursor: pointer;
         }
     }
-    .cta {
-        padding: 5px;
-        border: none;
-        background-color: rgba(255, 255, 255, 0.1);
-        color: white;
-        cursor: pointer;
-        transition: 0.3s;
-        &:hover {
-            background-color: rgba(255, 255, 255, 0.3);
-        }
+    .cta-miam {
+        @extend %button-cta;
     }
 }

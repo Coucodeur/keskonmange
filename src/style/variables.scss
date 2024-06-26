@@ -1,0 +1,79 @@
+// colors :
+$primary-color: #001233;
+$secondary-color: #FF595A;
+$tertiary-color: #CAC0B3;
+$black: #000000;
+$white: #FFFFFF;
+$cta-color: $secondary-color;
+$text-color: $tertiary-color;
+
+// sizes :
+$bar-height: 50px;
+
+
+// elements :
+//links for navbar
+%active-link {
+  background-color: #ff000044;
+    font-size: 1.2rem;
+    padding: 5px;
+    border-radius: 3px;
+    color: white;
+}
+
+%button-normal {
+  color: $secondary-color;
+  border: 1px solid $secondary-color;
+  padding: 10px 10px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s, color 0.3s;
+  background-color: lighten($primary-color, 10%);
+  
+  &:hover {
+    color: $text-color
+  }
+}
+%button-cta {
+  background-color: $cta-color;
+  color: $white;
+  border: 1px solid $cta-color;
+  padding: 12px 24px;
+  font-size: 18px;
+  cursor: pointer;
+  transition: background-color 0.3s, color 0.3s;
+
+  &:hover {
+    background-color: lighten($cta-color, 10%);
+    color: darken($white, 10%);
+  }
+
+}
+
+%input-text {
+  width: 100%;
+  padding: 10px;
+  font-size: 16px;
+  color: $black;
+  background-color: $white;
+  border: 2px solid $primary-color;
+  border-radius: 4px;
+  transition: border-color 0.3s, box-shadow 0.3s;
+
+  &::placeholder {
+    color: lighten($text-color, 20%);
+  }
+
+  &:focus {
+    border-color: $secondary-color;
+    box-shadow: 0 0 5px rgba($secondary-color, 0.5);
+    outline: none;
+  }
+
+  &:disabled {
+    background-color: $tertiary-color;
+    border-color: $tertiary-color;
+    cursor: not-allowed;
+  }
+}
+

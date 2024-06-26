@@ -1,13 +1,22 @@
-import "./ingredient.scss";
-import { useState } from "react";
+import './ingredient.scss';
+import { useState } from 'react';
+import deleteIcon from '../../assets/delete-1487-svgrepo-com.svg';
 
 const Igrendient = ({ id, ingredientName, action }) => {
   return (
     <div className="ingredient">
       {id ? (
-        <button onClick={() => action(id)}>x</button>
+        <img
+          src={deleteIcon}
+          className="ingredient-cta"
+          onClick={() => action(id)}
+        />
       ) : (
-        <button onClick={() => action(ingredientName)}>-</button>
+        <img
+          src={deleteIcon}
+          className="ingredient-cta"
+          onClick={() => action(ingredientName)}
+        />
       )}
 
       <p>{ingredientName}</p>

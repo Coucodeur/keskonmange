@@ -1,5 +1,12 @@
+@import '../../style/variables.scss';
+
 .navbar {
-  background-color: rgb(243, 173, 171);
+  //! OLD STYLE
+  // background-color: rgb(243, 173, 171);
+
+  //! NEW STYLE
+  background-color: $secondary-color;
+
   border-top: 1px solid black;
   box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.5);
   display: flex;
@@ -14,10 +21,6 @@
     transition: 0.3s;
   }
   .active {
-    background-color: #ff000044;
-    font-size: 1.2rem;
-    padding: 5px;
-    border-radius: 3px;
-    color: white;
+    @extend %active-link;
   }
 }

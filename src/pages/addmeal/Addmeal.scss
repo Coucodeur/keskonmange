@@ -1,4 +1,9 @@
+@import "../../style/variables.scss";
+
 .addmeal-page {
+    .input-section{
+        margin-bottom: 10px;
+    }
     h2 {
         margin: 50px auto;
     }
@@ -13,6 +18,9 @@
             display: flex;
             gap: 10px;
         }
+        .cta{
+            @extend %button-cta;
+        }
     }
     .recette-input {
         resize: none;
@@ -20,14 +28,8 @@
         min-height: 300px;
     }
     .recap-ingredient-container {
-        margin-top: 10px;
+        margin-top: 20px;
         display: flex;
-        flex-direction: column;
         gap: 10px;
-        .ingredient {
-            display: flex;
-            justify-content: space-between;
-            width: 50%;
-        }
     }
 }

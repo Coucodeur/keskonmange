@@ -1,3 +1,4 @@
+@import "../../style/variables.scss";
 .ingredient {
   background-color: rgba(255, 255, 255, 0.454);
   height: 40px;
@@ -8,11 +9,13 @@
   padding: 0 10px;
   border-radius: 5px;
   font-size: 0.8rem;
-  button {
-    border-radius: 50%;
-    border: 1px solid black;
+  color: $black;
+  .ingredient-cta {
+    width: 25px;
+    height: 25px;
     background-color: red;
-    width: 20px;
-    height: 20px;
+    border-radius: 50%;
+    padding: 3px;
   }
+  
 }
