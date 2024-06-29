@@ -156,6 +156,7 @@ const Addmeal = () => {
           <div className="recap-recette-container">
             <h3>Recette</h3>
             <textarea
+              autoFocus={true}
               className="recette-input"
               value={recette}
               onChange={(e) => setRecette(e.target.value)}

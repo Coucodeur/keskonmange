@@ -26,10 +26,15 @@
         resize: none;
         width: 100%;
         min-height: 300px;
+        padding: 5px;
     }
     .recap-ingredient-container {
         margin-top: 20px;
         display: flex;
+        flex-wrap: wrap;
         gap: 10px;
+        // .ingredient {
+        //     flex: 1;
+        // }
     }
 }

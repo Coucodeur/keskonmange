@@ -41,7 +41,7 @@ body {
         color: $text-color;
         height: calc(100svh - (2 * $bar-height));
         width: 100vw;
-        padding: 0 5px;
+        padding: 5px 5px;
         margin: $bar-height 0;
         overflow-y: auto;
         //change scrollbar style
@@ -56,8 +56,8 @@ body {
 
         /* Handle */
         &::-webkit-scrollbar-thumb {
-            background: #de4848eb;
-            border-radius: 25px;
+            background: rgb(79 68 71 / 44%);
+            border-radius: 3px;
         }
 
         /* Handle on hover */

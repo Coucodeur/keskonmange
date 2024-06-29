@@ -39,12 +39,16 @@ const Mealcard = ({
       <div className="ingredient-container-mealcard">
         <h3>Ingrédients :</h3>
         <ul className="meallist-ingredient-container">
-          {ingredients.map((ingredient, index) => (
-            <li key={index}>
-              <span>{index + 1} - </span>
-              {ingredient}
-            </li>
-          ))}
+          {ingredients.map(
+            (ingredient, index) => (
+              // index < 5 && (
+              <li key={index}>
+                <span>{index + 1} - </span>
+                {ingredient}
+              </li>
+            )
+            // )
+          )}
         </ul>
       </div>
       <div className="last-prep-container">
