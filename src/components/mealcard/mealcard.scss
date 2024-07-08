@@ -6,11 +6,10 @@
     flex-direction: column;
     justify-content: space-between;
     gap: 10px;
-    border-radius: 10px;
-    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 15px;
     box-shadow: 0 0 5px rgb(255, 255, 255, 10%);
     transition: transform 0.3s;
-    padding: 5px;
+    padding: 10px;
     background-color: lighten($color: $primary-color, $amount: 15%);
     h2 {
         text-align: center;
@@ -29,6 +28,12 @@
             background-color: red;
             cursor: pointer;
         }
+    }
+    .cta-details{
+        @extend %button-normal;
+        text-align: center;
+        text-decoration: none;
+        color: $white;
     }
     .cta-miam {
         @extend %button-cta;

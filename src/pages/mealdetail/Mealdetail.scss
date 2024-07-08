@@ -1,4 +1,8 @@
+@import "../../style/variables.scss";
+
 .meal-detail-page {
+    max-width: 800px;
+
     .recap-container-detail-page {
         margin-top: 20px;
         display: flex;
@@ -28,19 +32,7 @@
         }
     }
     .cta {
-        display: flex;
-        justify-content: center;
-        margin: 20px auto;
-        padding: 10px 20px;
-        background-color: #f1c40f;
-        border: none;
-        border-radius: 5px;
-        color: white;
-        font-weight: bold;
-        cursor: pointer;
-        transition: 0.3s;
-        &:hover {
-            background-color: #f39c12;
-        }
+        @extend %button-cta;
+        margin-top: 20px;
     }
 }

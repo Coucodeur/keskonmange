@@ -1,9 +1,11 @@
 import { useState, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 import Igrendient from '../../components/ingredient/Igrendient.jsx';
 import Header from '../../components/header/Header';
 import './Addmeal.scss';
 
 const Addmeal = () => {
+  const navigate = useNavigate();
   //variables for inputs
   const [ingredientsList, setIngredientsList] = useState([]);
   const [biggerMealId, setBiggerMealId] = useState(0);
@@ -83,6 +85,7 @@ const Addmeal = () => {
     setIngredients([]);
 
     setBiggerMealId(Number(biggerMealId) + 1);
+    navigate('/');
   };
 
   return (
@@ -145,11 +148,21 @@ const Addmeal = () => {
         </select>
         <div className="action-container">
           <div className="actions">
-            <button onClick={() => setIsWritting(false)}>Ingredients</button>
-            <button onClick={() => setIsWritting(true)}>Recette</button>
+            <button
+              style={{ backgroundColor: isWritting ? '' : '#ff7979' }}
+              onClick={() => setIsWritting(false)}
+            >
+              Ingredients
+            </button>
+            <button
+              style={{ backgroundColor: isWritting ? '#ff7979' : '' }}
+              onClick={() => setIsWritting(true)}
+            >
+              Recette
+            </button>
           </div>
           <button className="cta" onClick={handleAddMeal}>
-            Ajout repas
+            Ajout repas et retourner au menu
           </button>
         </div>
         {isWritting ? (

@@ -9,26 +9,8 @@
     list-style: none;
 }
 body {
-    //style
-    //! OLD STYLE
-    // background: #cb2d3e; /* fallback for old browsers */
-    // background: -webkit-linear-gradient(
-    //     to right,
-    //     #ef473a,
-    //     #cb2d3e
-    // ); /* Chrome 10-25, Safari 5.1-6 */
-    // background: linear-gradient(
-    //     to right,
-    //     #ef473a,
-    //     #cb2d3e
-    // ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-    //! NEW STYLE
     background-color: $primary-color;
-
-
-    //font family
     font-family: "Roboto", sans-serif;
-
     //position of header
     .header {
         position: fixed;
@@ -38,12 +20,13 @@ body {
     }
     //position of content
     .content {
-        color: $text-color;
+        color: $white;
         height: calc(100svh - (2 * $bar-height));
         width: 100vw;
-        padding: 5px 5px;
+        padding: 15px 5px;
         margin: $bar-height 0;
         overflow-y: auto;
+        scroll-behavior: smooth;
         //change scrollbar style
         &::-webkit-scrollbar {
             width: 10px;
@@ -70,6 +53,10 @@ body {
         // text inputs
         input[type="text"] {
             @extend %input-text;
+        }
+        input[type="number"] {
+            @extend %input-text;
+            width: 100px;
         }
         input[type="submit"] {
             @extend %button-normal;

@@ -1,7 +1,5 @@
-import React from 'react';
 import { Link } from 'react-router-dom';
 import './Mealcard.scss';
-import editIcon from '../../assets/edit-button-svgrepo-com.svg';
 import deleteIcon from '../../assets/delete-1487-svgrepo-com.svg';
 
 const Mealcard = ({
@@ -25,9 +23,9 @@ const Mealcard = ({
     <div className="meal-card">
       <h2>{formatedName}</h2>
       <div className="meal-icon-container">
-        <Link to={`/meal/${id}`}>
+        {/* <Link to={`/meal/${id}`}>
           <img src={editIcon} className="cta-icon" alt="edit-icon" />
-        </Link>
+        </Link> */}
         <img
           src={deleteIcon}
           alt="delete-icon"
@@ -40,14 +38,13 @@ const Mealcard = ({
         <h3>Ingrédients :</h3>
         <ul className="meallist-ingredient-container">
           {ingredients.map(
-            (ingredient, index) => (
-              // index < 5 && (
-              <li key={index}>
-                <span>{index + 1} - </span>
-                {ingredient}
-              </li>
-            )
-            // )
+            (ingredient, index) =>
+              index < 5 && (
+                <li key={index}>
+                  <span>{index + 1} - </span>
+                  {ingredient}
+                </li>
+              )
           )}
         </ul>
       </div>
@@ -55,6 +52,9 @@ const Mealcard = ({
         <p>Dernière préparation le :</p>
         <p>{formatedDate}</p>
       </div>
+      <Link className="cta-details" to={`/meal/${id}`}>
+        Détails
+      </Link>
       <button className="cta-miam" onClick={() => action(id)}>
         MIAM
       </button>
