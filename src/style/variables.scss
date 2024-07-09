@@ -1,5 +1,7 @@
 // colors :
 $primary-color: #001233;
+$blue1: #133ba8;
+$yellow1: #F1C40F;
 $secondary-color: #ff5959;
 $tertiary-color: #CAC0B3;
 $black: #000000;
@@ -13,11 +15,11 @@ $bar-height: 50px;
 // elements :
 //links for navbar
 %active-link {
-  background-color: #ff000044;
+  background-color: $secondary-color;
     font-size: 1.2rem;
     padding: 5px;
     border-radius: 3px;
-    color: white;
+    color: $yellow1;
 }
 
 %button-normal {

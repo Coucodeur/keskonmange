@@ -122,11 +122,13 @@ const Addmeal = () => {
             onChange={(e) => setNewIngredientName(e.target.value)}
             type="text"
             name="ingredient-name-input"
+            required
           />
-          <input type="submit" value="Ajouter" />
+          <input type="submit" className="addIngredientOnFly" value="Ajouter" />
         </form>
-        <div>Ajouter un ingrédients favoris</div>
+        <div>Ajouter un ingrédient favoris</div>
         <select
+          className="ingredient-list-select"
           name="ingredient-list"
           id="ingredient-list-select"
           onChange={(e) => handleAddIngredient(e.target.value)}
@@ -140,6 +142,7 @@ const Addmeal = () => {
                     key={ingredient.id}
                     value={ingredient.value}
                     name={ingredient.name}
+                    className="ingredient-list-option"
                   >
                     {ingredient.name}
                   </option>
