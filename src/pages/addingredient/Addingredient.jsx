@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import Igrendient from '../../components/ingredient/Igrendient';
 import Header from '../../components/header/Header';
+import { baseIngredients } from '../../data/base_ingredients/baseIngredients';
 import './Addingredient.scss';
 
 const Addingredient = () => {
@@ -17,7 +18,18 @@ const Addingredient = () => {
     const ingredientsListStored = JSON.parse(
       localStorage.getItem('ingredients')
     );
-    if (ingredientsListStored) {
+    if (!ingredientsListStored || ingredientsListStored.length < 29) {
+      localStorage.setItem('ingredients', JSON.stringify(baseIngredients));
+      setIngredientsList(baseIngredients);
+      //get the bigger id
+      let biggerID = 0;
+      baseIngredients.forEach((ingredient) => {
+        if (ingredient.id > biggerID) {
+          biggerID = ingredient.id;
+        }
+      });
+      setBiggerID(biggerID);
+    } else if (ingredientsListStored) {
       setIngredientsList(ingredientsListStored);
       //get the bigger id
       let biggerID = 0;
@@ -27,8 +39,6 @@ const Addingredient = () => {
         }
       });
       setBiggerID(biggerID);
-    } else {
-      console.log('no ingredients');
     }
   };
 
@@ -78,6 +88,7 @@ const Addingredient = () => {
         </form>
         {/* ingredients list */}
         <div className="ingredient-container">
+          <p>Nombre d'ingredients: {ingredientsList.length}</p>
           {ingredientsList
             .sort((a, b) => b.addDate - a.addDate)
             .map((ingredient) => (

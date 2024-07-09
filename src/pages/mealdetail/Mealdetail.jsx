@@ -96,6 +96,9 @@ const Mealdetail = () => {
     <>
       <Header title="Détail du repas" />
       <div className="meal-detail-page content">
+        <button className="cta" onClick={handleUpdateRecette}>
+          Mettre à jour et retourner au menu
+        </button>
         <div className="recap-container-detail-page">
           <h2 className="meal-name">{mealName}</h2>
           <p>Date de création : {formatedCreated}</p>
@@ -150,9 +153,6 @@ const Mealdetail = () => {
             onChange={(e) => setMealRecette(e.target.value)}
           ></textarea>
         </div>
-        <button className="cta" onClick={handleUpdateRecette}>
-          Mettre à jour et retourner au menu
-        </button>
       </div>
     </>
   );
