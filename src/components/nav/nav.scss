@@ -1,26 +1,27 @@
-@import '../../style/variables.scss';
+@import "../../style/variables.scss";
 
 .navbar {
-  //! OLD STYLE
-  // background-color: rgb(243, 173, 171);
-
-  //! NEW STYLE
-  background-color: $blue1;
-
-  border-top: 1px solid black;
-  box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.5);
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
-  a {
-    //style
-    color: black;
-    text-decoration: none;
-    font-size: 1rem;
-    //transition
-    transition: 0.3s;
-  }
-  .active {
-    @extend %active-link;
-  }
+    background-color: $blue1;
+    border-top: 1px solid black;
+    box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    a {
+        //style
+        color: black;
+        text-decoration: none;
+        font-size: 1rem;
+        transition: 0.3s;
+    }
+    .nav-icon {
+        width: 30px;
+        height: 30px;
+    }
+    .active {
+        @extend %active-link;
+        img {
+            filter: invert(1);
+        }
+    }
 }

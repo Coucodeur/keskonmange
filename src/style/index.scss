@@ -1,6 +1,6 @@
 @import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap");
 
-@import './variables.scss';
+@import "./variables.scss";
 
 * {
     margin: 0;
@@ -9,7 +9,7 @@
     list-style: none;
 }
 body {
-    background-color: $primary-color;
+    background-color: $background-color;
     font-family: "Roboto", sans-serif;
     .app {
         display: flex;
@@ -17,7 +17,6 @@ body {
         justify-content: space-between;
         align-items: center;
         height: 100vh;
-
     }
     //position of header
     .header {
@@ -26,6 +25,7 @@ body {
         height: $bar-height;
         top: 0;
     }
+
     //position of content
     .content {
         color: $white;
@@ -40,23 +40,21 @@ body {
         &::-webkit-scrollbar {
             width: 10px;
         }
-
         /* Track */
         &::-webkit-scrollbar-track {
             background: #0b0b0b12;
         }
-
         /* Handle */
         &::-webkit-scrollbar-thumb {
             background: rgb(79 68 71 / 44%);
             border-radius: 3px;
         }
-
         /* Handle on hover */
         &::-webkit-scrollbar-thumb:hover {
             background: #07e11642;
         }
-        button{
+        // buttons inputs
+        button {
             @extend %button-normal;
         }
         // text inputs

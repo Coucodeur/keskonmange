@@ -1,104 +1,100 @@
 // colors :
 $blue1: #133ba8;
-$yellow1: #F1C40F;
+$yellow1: #f1c40f;
 $yellow2: #efd56d;
 $orange1: #ff7f00;
 $primary-color: #001233;
 $secondary-color: #ff5959;
-$secondary-color-clear: #FF8C8C;
-$tertiary-color: #CAC0B3;
+$secondary-color-clear: #ff8c8c;
+$background-color: #314368;
+$tertiary-color: #cac0b3;
 $black: #000000;
-$white: #FFFFFF;
-$red1: #d70808; 
+$white: #ffffff;
+$red1: #d70808;
 $cta-color: $secondary-color;
 $text-color: $tertiary-color;
 
 // sizes :
 $bar-height: 50px;
 
-
-
 // elements :
 //links for navbar
 %active-link {
-  background-color: $secondary-color;
-    font-size: 1.2rem;
+    background-color: $secondary-color;
+    scale: 1.1;
     padding: 5px;
-    border-radius: 3px;
-    color: $yellow1;
+    border-radius: 25%;
 }
 
 %button-normal {
-  color: $white;
-  border: 1px solid $secondary-color;
-  border-radius: 5px;
-  padding: 10px 10px;
-  font-size: 16px;
-  cursor: pointer;
-  transition: 0.3s, color 0.3s;
-  background-color: transparent;
-  
-  &:hover {
-    background-color: $secondary-color-clear;
-    border: 1px solid $secondary-color-clear;
-    color: $black;
-  }
+    color: $white;
+    border: 1px solid $secondary-color;
+    border-radius: 5px;
+    padding: 10px 10px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: 0.3s, color 0.3s;
+    background-color: transparent;
+
+    &:hover {
+        background-color: $secondary-color-clear;
+        border: 1px solid $secondary-color-clear;
+        color: $black;
+    }
 }
 
 %button-cta {
-  background-color: $cta-color;
-  color: $white;
-  border: 1px solid $cta-color;
-  border-radius: 5px;
-  padding: 12px 24px;
-  font-size: 18px;
-  cursor: pointer;
-  transition: background-color 0.3s, color 0.3s;
-  &:hover {
-    background-color: $secondary-color-clear;
-    color: $black;
-    border: 1px solid $secondary-color-clear;
-  }
-
+    background-color: $cta-color;
+    color: $white;
+    border: 1px solid $cta-color;
+    border-radius: 5px;
+    padding: 12px 24px;
+    font-size: 18px;
+    cursor: pointer;
+    transition: background-color 0.3s, color 0.3s;
+    &:hover {
+        background-color: $secondary-color-clear;
+        color: $black;
+        border: 1px solid $secondary-color-clear;
+    }
 }
 
 %input-text {
-  width: 100%;
-  padding: 10px;
-  font-size: 16px;
-  color: $black;
-  background-color: $white;
-  border: 2px solid $primary-color;
-  border-radius: 4px;
-  transition: border-color 0.3s, box-shadow 0.3s;
-  &::placeholder {
-    color: lighten($text-color, 20%);
-  }
-  &:focus {
-    border-color: $secondary-color;
-    box-shadow: 0 0 5px $secondary-color;
-    outline: none;
-  }
-  &:disabled {
-    background-color: $tertiary-color;
-    border-color: $tertiary-color;
-    cursor: not-allowed;
-  }
+    width: 100%;
+    padding: 10px;
+    font-size: 16px;
+    color: $black;
+    background-color: $white;
+    border: 2px solid $primary-color;
+    border-radius: 4px;
+    transition: border-color 0.3s, box-shadow 0.3s;
+    &::placeholder {
+        color: lighten($text-color, 20%);
+    }
+    &:focus {
+        border-color: $secondary-color;
+        box-shadow: 0 0 5px $secondary-color;
+        outline: none;
+    }
+    &:disabled {
+        background-color: $tertiary-color;
+        border-color: $tertiary-color;
+        cursor: not-allowed;
+    }
 }
-
 
 // animations : //
 %fadeIn {
-  animation: fadeIn 0.5s;
+    animation: fadeIn 0.5s;
 }
 
 @keyframes fadeIn {
-  from {
-    opacity: 0;
-    background-color: transparent;
-  }
-  to {
-    opacity: 1;
-    background-color: $yellow2;
-  }
+    from {
+        opacity: 0;
+        background-color: transparent;
+    }
+    to {
+        opacity: 1;
+        background-color: $yellow2;
+    }
 }
