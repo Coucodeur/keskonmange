@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import './Mealdetail.scss';
 import { useParams, useNavigate } from 'react-router-dom';
+import { baseIngredients } from '../../data/base_ingredients/baseIngredients';
 import Header from '../../components/header/Header';
 import Ingredient from '../../components/ingredient/Igrendient';
 
@@ -46,7 +47,12 @@ const Mealdetail = () => {
     const ingredientsListStored = JSON.parse(
       localStorage.getItem('ingredients')
     );
-    setIngredientsList(ingredientsListStored);
+    if (!ingredientsListStored || ingredientsListStored.length < 29) {
+      localStorage.setItem('ingredients', JSON.stringify(baseIngredients));
+      setIngredientsList(baseIngredients);
+    } else {
+      setIngredientsList(ingredientsListStored);
+    }
   };
 
   const handleDeleteIngredient = (name) => {
@@ -96,9 +102,11 @@ const Mealdetail = () => {
     <>
       <Header title="Détail du repas" />
       <div className="meal-detail-page content">
-        <button className="cta" onClick={handleUpdateRecette}>
-          Mettre à jour et retourner à la liste
-        </button>
+        <div className="update-meal--cta-container">
+          <button className="cta" onClick={handleUpdateRecette}>
+            Mettre à jour et retourner à la liste
+          </button>
+        </div>
         <div className="recap-container-detail-page">
           <h2 className="meal-name">{mealName}</h2>
           <p>Date de création : {formatedCreated}</p>
@@ -106,13 +114,8 @@ const Mealdetail = () => {
           <p>Temps de préparation : {mealPrepTime} minutes</p>
         </div>
         <div className="ingredient-gest-container">
-          <form onSubmit={(e) => handleAddIngredientName(e)}>
-            <div>Ajouter ingredients</div>
-            <input required type="text" name="add-ingredient-name-input" />
-            <input type="submit" className="subAddIngredient" value="Ajouter" />
-          </form>
           <div>
-            <div>Ajouter un ingrédients favoris</div>
+            <div>Ajouter un ingrédient favoris</div>
             <select
               className="ingredient-list-select"
               name="ingredient-list"
@@ -137,6 +140,11 @@ const Mealdetail = () => {
                 : null}
             </select>
           </div>
+          <form onSubmit={(e) => handleAddIngredientName(e)}>
+            <div>Ajouter ingredient à la volée</div>
+            <input required type="text" name="add-ingredient-name-input" />
+            <input type="submit" className="subAddIngredient" value="Ajouter" />
+          </form>
         </div>
         {/* afficahge des ingredients */}
         <div className="ingredient-container-detail-page">

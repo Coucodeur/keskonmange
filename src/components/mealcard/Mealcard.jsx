@@ -53,7 +53,7 @@ const Mealcard = ({
         <p>{formatedDate}</p>
       </div>
       <Link className="cta-details" to={`/meal/${id}`}>
-        Modifier
+        Modifier - Consulter
       </Link>
       <button className="cta-miam" onClick={() => action(id)}>
         MIAM

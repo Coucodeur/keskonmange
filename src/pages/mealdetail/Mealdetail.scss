@@ -14,10 +14,10 @@
         }
     }
     .ingredient-gest-container {
-        margin: 20px 0;
+        margin: 25px 0;
         display: flex;
         flex-direction: column;
-        gap: 15px;
+        gap: 25px;
         .subAddIngredient{
             width: 100%;
         }
@@ -48,8 +48,13 @@
             min-height: 300px;
         }
     }
-    .cta {
-        @extend %button-cta;
-        margin-top: 20px;
+    .update-meal--cta-container{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        .cta {
+            @extend %button-cta;
+            margin: 20px auto;
+        }
     }
 }

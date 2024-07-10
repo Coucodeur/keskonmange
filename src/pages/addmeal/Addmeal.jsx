@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { baseIngredients } from '../../data/base_ingredients/baseIngredients';
 import Igrendient from '../../components/ingredient/Igrendient.jsx';
 import Header from '../../components/header/Header';
 import './Addmeal.scss';
@@ -15,11 +16,18 @@ const Addmeal = () => {
   const [newIngredientName, setNewIngredientName] = useState('');
   const [recette, setRecette] = useState('');
   const [isWritting, setIsWritting] = useState(false);
+  // gestion des erreurs
+  const [nameError, setNameError] = useState(false);
+  const [preptimeError, setpreptimeError] = useState(false);
 
   useEffect(() => {
     const ingredientsListStored = JSON.parse(
       localStorage.getItem('ingredients')
     );
+    if (!ingredientsListStored) {
+      localStorage.setItem('ingredients', JSON.stringify(baseIngredients));
+      setIngredientsList(baseIngredients);
+    }
     const mealsStored = JSON.parse(localStorage.getItem('meals'));
     if (mealsStored) {
       let biggerID = 0;
@@ -56,36 +64,42 @@ const Addmeal = () => {
   };
 
   const handleAddMeal = async () => {
-    const meal = {
-      id: Number(biggerMealId) + 1,
-      name,
-      prepTime,
-      ingredients,
-      recette,
-      created: Date.now(),
-      lastDate: Date.now(),
-    };
-    //go to local storage
-    const mealsStored = JSON.parse(localStorage.getItem('meals'));
-    if (!mealsStored) {
-      localStorage.setItem('meals', JSON.stringify([meal]));
-      console.log('meal added');
-      //reset inputs
-      setName('');
-      setPrepTime('');
-      setIngredients([]);
+    //check if inputs are empty
+    if (!name && !prepTime) {
+      setNameError(true);
+      setpreptimeError(true);
       return;
+    } else if (!name) {
+      setNameError(true);
+      return;
+    } else if (!prepTime) {
+      setpreptimeError(true);
+      return;
+    } else {
+      //create meal object
+      const meal = {
+        id: Number(biggerMealId) + 1,
+        name,
+        prepTime,
+        ingredients,
+        recette,
+        created: Date.now(),
+        lastDate: Date.now(),
+      };
+      //go to local storage for meals
+      const mealsStored = JSON.parse(localStorage.getItem('meals'));
+      if (!mealsStored) {
+        localStorage.setItem('meals', JSON.stringify([meal]));
+        //reset inputs
+        navigate('/');
+        return;
+      }
+      //add meal to meals
+      const newMeals = [...mealsStored, meal];
+      localStorage.setItem('meals', JSON.stringify(newMeals));
+      // return to home
+      navigate('/');
     }
-    const newMeals = [...mealsStored, meal];
-    localStorage.setItem('meals', JSON.stringify(newMeals));
-    console.log('meal added');
-    //reset inputs
-    setName('');
-    setPrepTime('');
-    setIngredients([]);
-
-    setBiggerMealId(Number(biggerMealId) + 1);
-    navigate('/');
   };
 
   return (
@@ -101,54 +115,74 @@ const Addmeal = () => {
             name="name-input"
             required
           />
+          <br />
+          {nameError ? (
+            <p className="error-message">* Le nom du repas est requis *</p>
+          ) : null}
         </div>
         <div className="input-section">
-          <div>Temps de préparation</div>
+          <div>Temps de préparation (minutes)</div>
           <input
             onChange={(e) => setPrepTime(e.target.value)}
             type="number"
             name="prep-time-input"
             required
           />
+          <br />
+
+          {preptimeError ? (
+            <div className="error-message">
+              * Le temps de préparation est requis *
+            </div>
+          ) : null}
         </div>
-        <form
-          className="input-section"
-          onSubmit={(e) => handleAddIngredientName(e)}
-          name="ingredient-adder-form"
-        >
-          <div>Ajouter ingredients</div>
-          <input
-            value={newIngredientName}
-            onChange={(e) => setNewIngredientName(e.target.value)}
-            type="text"
-            name="ingredient-name-input"
-            required
-          />
-          <input type="submit" className="addIngredientOnFly" value="Ajouter" />
-        </form>
-        <div>Ajouter un ingrédient favoris</div>
-        <select
-          className="ingredient-list-select"
-          name="ingredient-list"
-          id="ingredient-list-select"
-          onChange={(e) => handleAddIngredient(e.target.value)}
-        >
-          <option value="">--Choisissez vos ingrédients</option>
-          {ingredientsList
-            ? ingredientsList
-                .sort((a, b) => a.name.localeCompare(b.name))
-                .map((ingredient) => (
-                  <option
-                    key={ingredient.id}
-                    value={ingredient.value}
-                    name={ingredient.name}
-                    className="ingredient-list-option"
-                  >
-                    {ingredient.name}
-                  </option>
-                ))
-            : null}
-        </select>
+
+        <div className="ingrendient-input-container">
+          <div>
+            <div>Ajouter un ingrédient favoris</div>
+            <select
+              className="ingredient-list-select"
+              name="ingredient-list"
+              id="ingredient-list-select"
+              onChange={(e) => handleAddIngredient(e.target.value)}
+            >
+              <option value="">--Choisissez vos ingrédients</option>
+              {ingredientsList
+                ? ingredientsList
+                    .sort((a, b) => a.name.localeCompare(b.name))
+                    .map((ingredient) => (
+                      <option
+                        key={ingredient.id}
+                        value={ingredient.value}
+                        name={ingredient.name}
+                        className="ingredient-list-option"
+                      >
+                        {ingredient.name}
+                      </option>
+                    ))
+                : null}
+            </select>
+          </div>
+          <form
+            className="input-section"
+            onSubmit={(e) => handleAddIngredientName(e)}
+            name="ingredient-adder-form"
+          >
+            <div>Ajouter ingredient à la volée</div>
+            <input
+              value={newIngredientName}
+              onChange={(e) => setNewIngredientName(e.target.value)}
+              type="text"
+              name="ingredient-name-input"
+              required
+            />
+            <input
+              type="submit"
+              className="addIngredientOnFly"
+              value="Ajouter"
+            />
+          </form>
+        </div>
         <div className="action-container">
           <div className="actions">
             <button
@@ -165,7 +199,7 @@ const Addmeal = () => {
             </button>
           </div>
           <button className="cta" onClick={handleAddMeal}>
-            Ajout repas et retourner au menu
+            Ajout repas et retourner à la liste
           </button>
         </div>
         {isWritting ? (

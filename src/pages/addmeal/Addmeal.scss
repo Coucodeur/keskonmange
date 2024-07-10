@@ -1,11 +1,11 @@
 @import "../../style/variables.scss";
 
 .addmeal-page {
-    .input-section{
+    .input-section {
         margin-bottom: 1rem;
     }
     h2 {
-        margin: 50px auto;
+        margin: 25px auto;
     }
     .addIngredientOnFly{
         width: 100%;
@@ -42,6 +42,12 @@
         width: 100%;
         min-height: 300px;
         padding: 5px;
+    }
+    .ingrendient-input-container{
+        display: flex;
+        flex-direction: column;
+        gap: 25px;
+        margin: 48px 0;
     }
     .recap-ingredient-container {
         margin-top: 20px;

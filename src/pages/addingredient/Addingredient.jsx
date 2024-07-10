@@ -87,8 +87,8 @@ const Addingredient = () => {
           <button type="submit">Ajouter ingrédient</button>
         </form>
         {/* ingredients list */}
+        <p>Nombre d'ingredients: {ingredientsList.length}</p>
         <div className="ingredient-container">
-          <p>Nombre d'ingredients: {ingredientsList.length}</p>
           {ingredientsList
             .sort((a, b) => b.addDate - a.addDate)
             .map((ingredient) => (
