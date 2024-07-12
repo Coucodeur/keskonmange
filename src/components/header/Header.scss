@@ -1,8 +1,8 @@
 @import '../../style/variables.scss'; 
 .header{
   text-align: center;
-  background-color: $blue1;
+  background-color: $secondary-color;
   border-bottom: 1px solid black;
   box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.5);
-  color: $yellow1;
+  color: $white;
 }

@@ -3,17 +3,35 @@ $blue1: #133ba8;
 $yellow1: #f1c40f;
 $yellow2: #efd56d;
 $orange1: #ff7f00;
-$primary-color: #001233;
-$secondary-color: #ff5959;
-$secondary-color-clear: #ff8c8c;
+
+
+$primary-color: #0D1821;
+$secondary-color: #344966;
+$tertiary-color: #B4CDED;
+$quatuary-color: #F0F4EF;
+$fifty-color: #BFCC94;
+
+
 $onglet-background: #45454cbd;
-$background-color: #314368;
-$tertiary-color: #cac0b3;
+// $background-color: #2A2D33;
+// $tertiary-color: #cac0b3;
 $black: #000000;
 $white: #ffffff;
+// $blue1: #133ba8;
+// $yellow1: #f1c40f;
+// $yellow2: #efd56d;
+// $orange1: #ff7f00;
+// $primary-color: #001233;
+// $secondary-color: #ff5959;
+// $secondary-color: #ff8c8c;
+// $onglet-background: #45454cbd;
+// $background-color: #314368;
+// $tertiary-color: #cac0b3;
+// $black: #000000;
+// $white: #ffffff;
 $red1: #d70808;
-$cta-color: $secondary-color;
-$text-color: $tertiary-color;
+// $secondary-color: $secondary-color;
+// $text-color: $tertiary-color;
 
 // sizes :
 $bar-height: 50px;
@@ -21,7 +39,7 @@ $bar-height: 50px;
 // elements :
 //links for navbar
 %active-link {
-    background-color: $secondary-color;
+    background-color: $primary-color;
     scale: 1.1;
     padding: 5px;
     border-radius: 25%;
@@ -29,7 +47,7 @@ $bar-height: 50px;
 
 %button-normal {
     color: $white;
-    border: 1px solid $secondary-color;
+    border: 1px solid $fifty-color;
     border-radius: 5px;
     padding: 10px 10px;
     font-size: 16px;
@@ -39,26 +57,24 @@ $bar-height: 50px;
 
     @media screen and (min-width: 600px){
     &:hover {
-        background-color: $secondary-color-clear;
-        border: 1px solid $secondary-color-clear;
+        background-color: $fifty-color;
+        border: 1px solid $fifty-color;
         color: $black;
     }   
     }
 }
 
 %button-cta {
-    background-color: $cta-color;
+    background-color: $fifty-color;
     color: $white;
-    border: 1px solid $cta-color;
+    border: 1px solid $fifty-color;
     border-radius: 5px;
     padding: 12px 24px;
     font-size: 18px;
     cursor: pointer;
     transition: background-color 0.3s, color 0.3s;
     &:hover {
-        background-color: $secondary-color-clear;
         color: $black;
-        border: 1px solid $secondary-color-clear;
     }
 }
 
@@ -72,7 +88,7 @@ $bar-height: 50px;
     border-radius: 4px;
     transition: border-color 0.3s, box-shadow 0.3s;
     &::placeholder {
-        color: lighten($text-color, 20%);
+        color: $white;
     }
     &:focus {
         border-color: $secondary-color;

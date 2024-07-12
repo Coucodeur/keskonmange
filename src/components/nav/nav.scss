@@ -1,7 +1,7 @@
 @import "../../style/variables.scss";
 
 .navbar {
-    background-color: $blue1;
+    background-color: $secondary-color;
     border-top: 1px solid black;
     box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.5);
     display: flex;
@@ -15,8 +15,11 @@
         transition: 0.3s;
     }
     .nav-icon {
-        width: 30px;
-        height: 30px;
+        width: 25px;
+        height: 25px;
+        &:hover {
+            scale: 1.1;
+        }
     }
     .active {
         @extend %active-link;
