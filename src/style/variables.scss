@@ -59,14 +59,14 @@ $bar-height: 50px;
     &:hover {
         background-color: $fifty-color;
         border: 1px solid $fifty-color;
-        color: $black;
+        color: $primary-color;
     }   
     }
 }
 
 %button-cta {
     background-color: $fifty-color;
-    color: $white;
+    color: $primary-color;
     border: 1px solid $fifty-color;
     border-radius: 5px;
     padding: 12px 24px;
