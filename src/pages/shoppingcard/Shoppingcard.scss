@@ -1,0 +1,14 @@
+@import "../../style/variables.scss";
+
+.shoppingcart-page {
+  h2 {
+    margin: 25px 0;
+  }
+  .shoppingcart-container {
+    .shoppingcart-list {
+      .ingredient{
+        margin-bottom: 5px;
+      }
+    }
+  }
+}

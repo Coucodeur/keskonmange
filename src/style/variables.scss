@@ -36,10 +36,12 @@ $bar-height: 50px;
     transition: 0.3s, color 0.3s;
     background-color: transparent;
 
+    @media screen and (min-width: 600px){
     &:hover {
         background-color: $secondary-color-clear;
         border: 1px solid $secondary-color-clear;
         color: $black;
+    }   
     }
 }
 

@@ -1,7 +1,17 @@
-.meal-list-container {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-    grid-template-rows: repeat(auto-fill, minmax(1fr, 450px));
-    grid-auto-rows: minmax(500px, 500px);
-    grid-gap: 15px;
+.content{
+    .btn-control-container {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        margin-bottom: 20px;
+    }
+    .meal-list-container {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+        grid-template-rows: repeat(auto-fill, minmax(1fr, 450px));
+        grid-auto-rows: minmax(500px, 500px);
+        grid-gap: 15px;
+    }
 }
+    

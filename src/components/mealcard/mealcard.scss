@@ -29,6 +29,17 @@
             cursor: pointer;
         }
     }
+    .ingredient-container-mealcard{
+        height: 220px;
+    }
+    .last-prep-container {
+        margin-bottom: 10px;
+        .nbOfDays {
+            font-size: 1rem;
+            text-decoration: underline;
+            color: $yellow1;
+        }
+    }
     .cta-details{
         @extend %button-normal;
         text-align: center;
