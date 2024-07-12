@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { baseIngredients } from '../../data/base_ingredients/baseIngredients';
+import baseIngredients from '../../data/base_ingredients/baseIngredients';
 import Igrendient from '../../components/ingredient/Igrendient.jsx';
 import Header from '../../components/header/Header';
 import './Addmeal.scss';
@@ -27,6 +27,8 @@ const Addmeal = () => {
     if (!ingredientsListStored) {
       localStorage.setItem('ingredients', JSON.stringify(baseIngredients));
       setIngredientsList(baseIngredients);
+    } else {
+      setIngredientsList(ingredientsListStored);
     }
     const mealsStored = JSON.parse(localStorage.getItem('meals'));
     if (mealsStored) {
@@ -38,7 +40,6 @@ const Addmeal = () => {
       });
       setBiggerMealId(biggerID);
     }
-    setIngredientsList(ingredientsListStored);
   }, []);
 
   const handleAddIngredient = (value) => {
