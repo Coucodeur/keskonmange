@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
-import baseIngredients from '../../data/base_ingredients/baseIngredients';
+import { baseIngredients } from '../../data/base_ingredients/baseIngredients';
 import Igrendient from '../../components/ingredient/Igrendient.jsx';
 import Header from '../../components/header/Header';
 import './Addmeal.scss';
