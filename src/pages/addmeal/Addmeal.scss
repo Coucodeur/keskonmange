@@ -24,17 +24,29 @@
         color: $black;
         background-color: $secondary-color;
     }
+    .cta{
+        @extend %button-cta;
+    }
     .action-container {
-        margin: 20px 0 20px 0;
+        margin: 20px 0 0 0;
         display: flex;
         justify-content: space-around;
-        gap: 1rem;
         .actions {
-            display: flex;
-            gap: 0.5rem;
-        }
-        .cta{
-            @extend %button-cta;
+            .onglet-btn {
+                color: $black;
+                border: 1px solid $secondary-color;
+                border-radius: 5px 5px 0 0;
+                padding: 10px 10px;
+                font-size: 16px;
+                cursor: pointer;
+                transition: 0.3s, color 0.3s;
+                border-bottom: 0;
+
+            }
+            .active {
+                background-color: $onglet-background;
+                color: $white;
+            }
         }
     }
     .recette-input {
@@ -42,17 +54,31 @@
         width: 100%;
         min-height: 300px;
         padding: 5px;
+        border-top: 1px solid $secondary-color;
+        background-color: $onglet-background;
+        border-radius: 0 0 5px 5px;
+        font-size: 1rem;
+        color: $white;
+        &:focus {
+            outline: none;
+        }
     }
     .ingrendient-input-container{
         display: flex;
         flex-direction: column;
         gap: 25px;
         margin: 48px 0;
+        border-radius: 0 0 5px 5px;
+        
     }
     .recap-ingredient-container {
-        margin-top: 20px;
         display: flex;
         flex-wrap: wrap;
         gap: 10px;
+        border-top: 1px solid $secondary-color;
+        border-radius: 0 0 5px 5px;
+        min-height: 50px;
+        padding: 5px;
+        background-color: $onglet-background;
     }
 }

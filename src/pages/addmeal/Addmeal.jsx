@@ -183,28 +183,29 @@ const Addmeal = () => {
             />
           </form>
         </div>
+        <button className="cta" onClick={handleAddMeal}>
+          Ajout repas et retourner à la liste
+        </button>
         <div className="action-container">
           <div className="actions">
             <button
-              style={{ backgroundColor: isWritting ? '' : '#ff7979' }}
+              className={`onglet-btn ${isWritting ? '' : 'active'}`}
+              // style={{ backgroundColor: isWritting ? '' : '#45454C' },{color: isWritting ? '' : 'white'}}
               onClick={() => setIsWritting(false)}
             >
               Ingredients
             </button>
             <button
-              style={{ backgroundColor: isWritting ? '#ff7979' : '' }}
+              className={`onglet-btn ${isWritting ? 'active' : ''}`}
+              style={{ backgroundColor: isWritting ? '#45454C' : '' }}
               onClick={() => setIsWritting(true)}
             >
               Recette
             </button>
           </div>
-          <button className="cta" onClick={handleAddMeal}>
-            Ajout repas et retourner à la liste
-          </button>
         </div>
         {isWritting ? (
           <div className="recap-recette-container">
-            <h3>Recette</h3>
             <textarea
               autoFocus={true}
               className="recette-input"
@@ -215,15 +216,21 @@ const Addmeal = () => {
           </div>
         ) : (
           <div>
-            <h3>Ingrédients</h3>
             <div className="recap-ingredient-container">
-              {ingredients.map((ingredient, index) => (
-                <Igrendient
-                  key={index}
-                  ingredientName={ingredient}
-                  action={handleDeleteIngredient}
-                />
-              ))}
+              {ingredients.length === 0 ? (
+                <p>
+                  Choisissez un ingrédient dans la liste ou ajoutez-le à la
+                  volée pour le faire apparaitre
+                </p>
+              ) : (
+                ingredients.map((ingredient, index) => (
+                  <Igrendient
+                    key={index}
+                    ingredientName={ingredient}
+                    action={handleDeleteIngredient}
+                  />
+                ))
+              )}
             </div>
           </div>
         )}
