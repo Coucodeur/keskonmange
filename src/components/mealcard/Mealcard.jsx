@@ -49,7 +49,14 @@ const Mealcard = ({
           onClick={() => deleteMeal(id)}
         />
       </div>
-      <p>Temps de préparation : {prepTime} minutes</p>
+      <div className="last-prep-container">
+        <p>Dernière préparation :</p>
+        <p className="nbOfDays">{numberOfDays} jour(s)</p>
+      </div>
+      <div className="last-prep-container">
+        <p>Temps de préparation :</p>
+        <p>{prepTime} minutes</p>
+      </div>
       <div className="ingredient-container-mealcard">
         <h3>Ingrédients :</h3>
         <ul className="meallist-ingredient-container">
@@ -64,10 +71,7 @@ const Mealcard = ({
           )}
         </ul>
       </div>
-      <div className="last-prep-container">
-        <p>Dernière préparation:</p>
-        <p className="nbOfDays">{numberOfDays} jour(s)</p>
-      </div>
+
       <Link className="cta-details" to={`/meal/${id}`}>
         Modifier - Consulter
       </Link>

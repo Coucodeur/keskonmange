@@ -1,37 +1,34 @@
 @import '../../style/variables.scss';
 
 .meal-card {
-    // height: 400px;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     gap: 10px;
-    border-radius: 15px;
+    border-radius: 3px;
     // box-shadow: 0 0 5px rgb(255, 255, 255, 10%);
     transition: transform 0.3s;
     padding: 10px;
     background-color: $secondary-color;
-    // background-color: lighten($color: $primary-color, $amount: 15%);
     h2 {
         text-align: center;
+        min-height: 58px;
     }
     .meal-icon-container {
         display: flex;
         justify-content: space-around;
         .cta-icon {
+            cursor: pointer;
             width: 30px;
             height: 30px;
-            background-color: royalblue;
             padding: 5px;
-            border-radius: 50%;
         }
         .cta-delete {
-            background-color: red;
-            cursor: pointer;
+            filter: invert(84%) sepia(11%) saturate(791%) hue-rotate(33deg) brightness(95%) contrast(87%);
         }
     }
     .ingredient-container-mealcard{
-        height: 220px;
+        height: 150px;
     }
     .last-prep-container {
         margin-bottom: 10px;

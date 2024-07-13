@@ -9,8 +9,8 @@
     .meal-list-container {
         display: grid;
         grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
-        grid-template-rows: repeat(auto-fill, minmax(1fr, 450px));
-        grid-auto-rows: minmax(500px, 500px);
+        // grid-template-rows: repeat(auto-fill, minmax(1fr, 450px));
+        grid-auto-rows: minmax(1fr, 520px);
         grid-gap: 15px;
     }
 }

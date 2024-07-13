@@ -77,13 +77,14 @@ body {
         top: calc(100svh - $bar-height);
     }
     .error-message {
-        @extend %fadeIn;
+        
         color: $red1;
         font-size: 1.1rem;
-        transition: 1s ease-in-out;
+        transition: 0.2s ease-in-out;
         background-color: $yellow2;
         border-radius: 3px;
         display: inline-block;
         padding: 5px;
+        animation: fadeIn 0.3s cubic-bezier(.36,0,.63,1.01) forwards;
     }
 }

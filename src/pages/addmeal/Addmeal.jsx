@@ -107,7 +107,7 @@ const Addmeal = () => {
     <>
       <Header title="Ajout d'un repas" />
       <div className="content addmeal-page">
-        <h2>Entrez les informations du repas</h2>
+        {/* <h2>Entrez les informations du repas</h2> */}
         <div className="input-section">
           <div>Nom du repas</div>
           <input
