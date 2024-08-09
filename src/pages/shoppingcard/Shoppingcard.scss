@@ -1,14 +1,36 @@
 @import "../../style/variables.scss";
 
 .shoppingcart-page {
-  h2 {
-    margin: 25px 0;
-  }
-  .shoppingcart-container {
-    .shoppingcart-list {
-      .ingredient{
-        margin-bottom: 5px;
-      }
+    h2 {
+        margin: 25px 0;
     }
-  }
+    .shoppingcart-container {
+        .reset-list-btn {
+            margin-bottom: 16px;
+        }
+        .shoppingcart-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            .meal-to-shop {
+                flex: 1;
+                background-color: $fifty-color;
+                border-radius: 3px;
+                padding: 5px;
+                h3 {
+                    color: $black;
+                }
+                li {
+                    color: $secondary-color;
+                }
+            }
+        }
+        .recap-all-ingredients-container {
+            .recap-all-ingredients {
+                display: flex;
+                flex-direction: column;
+                gap: 5px;
+            }
+        }
+    }
 }

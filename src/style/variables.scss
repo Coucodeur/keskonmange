@@ -4,13 +4,11 @@ $yellow1: #f1c40f;
 $yellow2: #efd56d;
 $orange1: #ff7f00;
 
-
-$primary-color: #0D1821;
+$primary-color: #0d1821;
 $secondary-color: #344966;
-$tertiary-color: #B4CDED;
-$quatuary-color: #F0F4EF;
-$fifty-color: #BFCC94;
-
+$tertiary-color: #b4cded;
+$quatuary-color: #f0f4ef;
+$fifty-color: #bfcc94;
 
 $onglet-background: #45454cbd;
 // $background-color: #2A2D33;
@@ -43,6 +41,7 @@ $bar-height: 50px;
     scale: 1.1;
     padding: 5px;
     border-radius: 25%;
+    color: $white;
 }
 
 %button-normal {
@@ -52,15 +51,15 @@ $bar-height: 50px;
     padding: 10px 10px;
     font-size: 16px;
     cursor: pointer;
-    transition: 0.25s cubic-bezier(.36,0,.63,1.01);
+    transition: 0.25s cubic-bezier(0.36, 0, 0.63, 1.01);
     background-color: transparent;
 
-    @media screen and (min-width: 600px){
-    &:hover {
-        background-color: $fifty-color;
-        border: 1px solid $fifty-color;
-        color: $primary-color;
-    }   
+    @media screen and (min-width: 600px) {
+        &:hover {
+            background-color: $fifty-color;
+            border: 1px solid $fifty-color;
+            color: $primary-color;
+        }
     }
 }
 
@@ -72,17 +71,17 @@ $bar-height: 50px;
     padding: 12px 24px;
     font-size: 18px;
     cursor: pointer;
-    transition: 0.25s cubic-bezier(.36,0,.63,1.01);
+    transition: 0.25s cubic-bezier(0.36, 0, 0.63, 1.01);
 
-    @media screen and (min-width: 600px){
-    &:hover {
-        color: $black;
-        box-shadow: 0 5px 15px -10px #ffffff;
-        -webkit-transform: translate(0px, -3px);
-        -ms-transform: translate(0px, -3px);
-        transform: translate(0px, -3px);
+    @media screen and (min-width: 600px) {
+        &:hover {
+            color: $black;
+            box-shadow: 0 5px 15px -10px #ffffff;
+            -webkit-transform: translate(0px, -3px);
+            -ms-transform: translate(0px, -3px);
+            transform: translate(0px, -3px);
+        }
     }
-    }   
 }
 
 %input-text {
